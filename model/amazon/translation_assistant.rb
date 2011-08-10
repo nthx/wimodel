@@ -1,3 +1,6 @@
+require "utils/logging"
+
+
 module Model
     module Amazon
         class TranslationAssistant

@@ -1,6 +1,8 @@
 require "model/amazon/account"
 require "model/amazon/translation_assistant"
 require "model/amazon/seller_presenter"
+require "utils/logging"
+
 
 module Model
 

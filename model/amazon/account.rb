@@ -1,4 +1,6 @@
 require "model/amazon/item"
+require "utils/logging"
+
 
 module Model
     module Amazon
