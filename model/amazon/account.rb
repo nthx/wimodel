@@ -26,12 +26,14 @@ module Model
 
             
             def to_s
-                "Account: #{@username} (#{@site}): items: #{@items.length}"
+                str = []
+                str << "Account: #{@username} (#{@site}): items: #{@items.length}"
                 if @items.length
                     @items.each do |item|
-                        puts item
+                        str << item.to_s
                     end
                 end
+                str.join('\n')
             end
         end
 

@@ -38,11 +38,13 @@ module Model
         
         
         def present_yourself
-            puts "Presenting Seller: #{self.name}"
-            puts "Accounts: #{@accounts.length}"
+            str = []
+            str << "Presenting Seller: #{self.name}"
+            str << "Accounts: #{@accounts.length}"
             self.accounts.each do |account| 
-                puts account
+                str << account.to_s
             end
+            str.join('\n')
         end
         
     end
