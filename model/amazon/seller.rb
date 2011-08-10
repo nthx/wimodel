@@ -1,14 +1,16 @@
 require "model/amazon/account"
 require "model/amazon/translation_assistant"
+require "model/amazon/seller_presenter"
 
 module Model
-    #include Model::SellerPresenter
 
     module Seller
+        include Model::SellerPresenter
         attr_reader :accounts
+
         def initialize
-            puts "#{self.class} initialize: @name: #{@name} vs self.name: #{self.name}"
             @accounts = []
+            super()
         end
 
         #def Seller.included(mod)
@@ -16,7 +18,6 @@ module Model
         #end
 
         def assign_account(site)
-            puts "assign_account: #{site}.."
             account = Model::Amazon::Account.new(site)
             @accounts.push account
             account
@@ -33,22 +34,8 @@ module Model
         def request_translation(item, site)
             assistant = Model::Amazon::TranslationAssistant.new(self)
             assistant.request_translation(item, site)
-            
         end
         
-        
-        def present_yourself
-            str = []
-            str << "Presenting Seller: #{self.name}"
-            str << "Accounts: #{@accounts.length}"
-            self.accounts.each do |account| 
-                str << account.to_s
-            end
-            str.join('\n')
-        end
         
     end
-    
-    
-    
 end

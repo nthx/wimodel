@@ -7,13 +7,11 @@ module Model
             attr_accessor :site, :username
 
             def initialize(site, username=nil)
-                #puts "#{self.class}.initialize"
                 @site, @username = site, username
                 @items = []
             end
 
             def fetched_item(item_id)
-                #puts "fetched_item: #{item_id}"
                 item = Model::Amazon::Item.new(@site, item_id)
                 @items << item
                 item
@@ -28,10 +26,8 @@ module Model
             def to_s
                 str = []
                 str << "Account: #{@username} (#{@site}): items: #{@items.length}"
-                if @items.length
-                    @items.each do |item|
-                        str << item.to_s
-                    end
+                @items.each do |item|
+                    str << item.to_s
                 end
                 str.join('\n')
             end
