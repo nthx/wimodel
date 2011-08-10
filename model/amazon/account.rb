@@ -31,7 +31,7 @@ module Model
                 @items.each do |item|
                     str << item.to_s
                 end
-                str.join('\n')
+                str.join("\n")
             end
         end
 

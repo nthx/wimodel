@@ -26,7 +26,6 @@ module Model
             account
         end
         
-        
         def fetched_item(account, item_id)
             if not @accounts.member?(account)
                 raise Exception('Account not yours to fetch')

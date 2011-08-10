@@ -15,7 +15,7 @@ module Model
             @accounts.each do |account| 
                 str << account.to_s
             end
-            str.join('\n')
+            str.join("\n")
         end
         
     end
