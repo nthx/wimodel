@@ -1,5 +1,4 @@
-#require "model/e/account"
-require "model/e/seller"
+require "model/amazon/seller"
 
 module Model
     class User

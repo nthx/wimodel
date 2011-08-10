@@ -1,7 +1,7 @@
-require "model/e/item"
+require "model/amazon/item"
 
 module Model
-    module E
+    module Amazon
 
         class Account
             attr_accessor :site, :username
@@ -19,7 +19,7 @@ module Model
             
 
             def fetched_item(item_id)
-                item = Model::E::Item.new(@site, item_id)
+                item = Model::Amazon::Item.new(@site, item_id)
                 @items << item
             end
             

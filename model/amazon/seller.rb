@@ -1,5 +1,5 @@
-require "model/e/account"
-require "model/e/seller_view"
+require "model/amazon/account"
+require "model/amazon/seller_view"
 
 module Model
     
@@ -19,7 +19,7 @@ module Model
         end
 
         def assign_account(site)
-            account = Model::E::Account.new(site)
+            account = Model::Amazon::Account.new(site)
             @accounts.push account
             account
         end

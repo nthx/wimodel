@@ -1,5 +1,5 @@
 module Model
-    module E
+    module Amazon
 
         class Item
             attr_accessor :site, :item_id, :url
