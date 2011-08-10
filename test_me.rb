@@ -1,5 +1,7 @@
 require "utils/logging"
 require "model/user"
+require "bundler/setup"
+require "madeleine"
 
 
 Log.debug('Running diagnosis..')

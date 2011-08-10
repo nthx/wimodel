@@ -12,7 +12,7 @@ module Model
             
             def find_account(item)
                 #puts "find_account.. #{item}"
-                for account in @seller.accounts:
+                for account in @seller.accounts
                     if account.has_item(item)
                         account
                     end

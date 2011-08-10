@@ -1,6 +1,0 @@
-A test of storage layer exchange in a project having 100M+ of data
-
-Current storage: MySQL (around 200GB of innodb)
-Tested storage: Madeline (Ruby Prevalence implementation)
-
-Model taken from existing app

@@ -3,11 +3,23 @@
   <component name="DBNavigator.Module.ConnectionManager">
     <connections />
   </component>
+  <component name="GemRequirementsHolder" version="3">
+    <requirement>
+      <requirement>
+        <dependency name="madeleine" version="0" bound="GREATER_OR_EQUAL" git="true" path="false" doRequire="true" />
+      </requirement>
+      <source from="Gemfile" />
+    </requirement>
+  </component>
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
-    <content url="file://$MODULE_DIR$" />
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/.bundle" />
+    </content>
     <orderEntry type="jdk" jdkName="Ruby SDK 1.8.7-p334 [global]" jdkType="RUBY_SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] bundler (v1.0.17, /home/nthx/.rvm/gems/ree-1.8.7-2011.03@global/gems/bundler-1.0.17)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] madeleine (v0.7.3, /home/nthx/.rvm/gems/ree-1.8.7-2011.03@global/bundler/gems/madeleine-cbb4c47064cd)" level="application" />
   </component>
 </module>
 

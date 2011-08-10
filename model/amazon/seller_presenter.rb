@@ -12,7 +12,7 @@ module Model
             str = []
             str << "Presenting Seller: #{name}"
             str << "Accounts: #{@accounts.length}"
-            @accounts.each do |account| 
+            @accounts.each do |account|
                 str << account.to_s
             end
             str.join("\n")

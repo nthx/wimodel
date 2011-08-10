@@ -1,2 +1,5 @@
-rvm use ree
+rvm --default use 1.9.2
+rvm use 1.9.2
 gem install log4r
+gem install bundler
+bundler install
