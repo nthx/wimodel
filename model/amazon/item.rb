@@ -19,7 +19,12 @@ module Model
 
 
             def to_s
-                "Item: #{@item_id} requests: #{@translation_requests.length}"
+                str = []
+                str << "Item: #{@item_id} requests: #{@translation_requests.length}"
+                @translation_requests.each do |request|
+                    str << request.to_s
+                end
+                return str.join("\n")
             end
         end
 

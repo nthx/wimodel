@@ -9,7 +9,7 @@ module Model
 
             
             def to_s
-                "Item: #{@item_id}"
+                "Requested to #{@site}"
             end
         end
 
