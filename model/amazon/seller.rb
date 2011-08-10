@@ -11,12 +11,13 @@ module Model
         attr_reader :accounts
 
         def initialize
+            Log.debug('Seller.initialize..')
             @accounts = []
             super()
         end
 
         #def Seller.included(mod)
-        #    puts "#{self} included() in #{mod}"
+        #    Log.debug("#{self} included() in #{mod}")
         #end
 
         def assign_account(site)

@@ -1,14 +1,12 @@
-require "model/user"
 require "utils/logging"
+require "model/user"
 
 
-Log.debug('-' * 80)
 Log.debug('Running diagnosis..')
 
 u = Model::User.new('tomcio')
-account = u.assign_account('US')
-item = u.fetched_item(account, '213091283019283012')
-translation = u.request_translation(item, 'DE')
+u.generate_data
+
 
 Log.debug('Infection found..')
 

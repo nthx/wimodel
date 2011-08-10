@@ -26,3 +26,4 @@ class MyLog
 end
  
 Log = MyLog.new
+Log.debug('-' * 80)
