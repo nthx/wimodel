@@ -7,9 +7,9 @@ module Model
 
         def present_yourself
             str = []
-            str << "Presenting Seller: #{self.name}"
+            str << "Presenting Seller: #{name}"
             str << "Accounts: #{@accounts.length}"
-            self.accounts.each do |account| 
+            @accounts.each do |account| 
                 str << account.to_s
             end
             str.join('\n')

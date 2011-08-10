@@ -18,7 +18,7 @@ module Model
             
             
             def request_translation(item, site)
-                account = self.find_account(item)
+                account = find_account(item)
                 #puts "Account found: #{account}"
                 if not account
                     raise ArgumentError('Item not in an account')
