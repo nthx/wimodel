@@ -2,12 +2,12 @@ require "model/amazon/account"
 require "model/amazon/translation_assistant"
 
 module Model
-    
+    #include Model::SellerPresenter
 
     module Seller
         attr_reader :accounts
         def initialize
-            #puts "#{self.class} initialize: @name: #{@name} vs self.name: #{self.name}"
+            puts "#{self.class} initialize: @name: #{@name} vs self.name: #{self.name}"
             @accounts = []
         end
 
