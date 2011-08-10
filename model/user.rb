@@ -5,7 +5,7 @@ module Model
         include Model::Seller
         
         def initialize(last_name, first_name=nil)
-            puts "User.initialize #{last_name}"
+            #puts "User.initialize #{last_name}"
             @first_name, @last_name = first_name, last_name
             super()
         end
@@ -16,7 +16,7 @@ module Model
         end
         
     
-        def inspect
+        def to_s
             "User: #{name}"
         end
     end

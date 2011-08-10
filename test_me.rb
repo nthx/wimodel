@@ -1,8 +1,13 @@
 require "model/user"
 
 u = Model::User.new('tomcio')
+puts u
+
 account = u.assign_account('US')
 
-u.fetched_item(account, '213091283019283012')
+item = u.fetched_item(account, '213091283019283012')
+translation = u.request_translation(item, 'DE')
 
 u.present_yourself
+
+puts "OK. End"
