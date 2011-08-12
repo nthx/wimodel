@@ -26,9 +26,20 @@ module Model
             account
         end
         
+        def main_account
+            @accounts.each do |account|
+                if account.uk_or_us?
+                    account
+                end
+            end
+            if @accounts
+                @accounts[0]
+            end
+        end
+        
         def fetched_item(account, item_id)
             if not @accounts.member?(account)
-                raise Exception('Account not yours to fetch')
+                raise 'Account not yours to fetch'
             end
             account.fetched_item(item_id)
         end

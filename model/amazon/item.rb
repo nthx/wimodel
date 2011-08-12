@@ -1,4 +1,6 @@
 require "model/amazon/translation_request"
+require "utils/utils"
+require "set"
 
 module Model
     module Amazon
@@ -16,15 +18,25 @@ module Model
                 request = Model::Amazon::TranslationRequest.new(site)
                 @translation_requests << request
             end
+            
+            def length_of_requests
+                @translation_requests.length
+            end
+            
+            def sites_that_have_request_pending
+                sites = Set.new
+                @translation_requests.each do |request|
+                    sites.add(request.site)
+                end
+                def sites.to_s
+                    show_set_values(self)
+                end
+                sites
+            end
 
 
             def to_s
-                str = []
-                str << "Item: #{@item_id} requests: #{@translation_requests.length}"
-                @translation_requests.each do |request|
-                    str << request.to_s
-                end
-                return str.join("\n")
+                "Item #{@site} #{@item_id}, #{@translation_requests.length} requests #{sites_that_have_request_pending}"
             end
         end
 

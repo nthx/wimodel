@@ -3,6 +3,7 @@ require "utils/logging"
 
 module Model
     module Amazon
+        
         class TranslationAssistant
             
             def initialize(seller)
@@ -24,7 +25,7 @@ module Model
                 account = find_account(item)
                 #puts "Account found: #{account}"
                 if not account
-                    raise ArgumentError('Item not in an account')
+                    raise 'Item not in an account'
                 end
                 item.new_request(site)
             end
