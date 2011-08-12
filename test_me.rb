@@ -1,20 +1,30 @@
 require "utils/logging"
-require "model/user"
 require "bundler/setup"
-require "lib/andrzejkrzywda-madeleine-cbb4c47/lib/madeleine"
+
+require "model/world"
+require "model/user"
 require "utils/random"
+require "lib/andrzejkrzywda-madeleine-cbb4c47/lib/madeleine"
 
 
 
 Log.debug('Running diagnosis..')
+world = Model::World.new
 
-u = Model::User.new('tomcio')
-u.generate_data
+first_user = world.give_birth_to_amazon_seller('tomcio')
+first_user.generate_data
 
 Log.debug('Infection found..')
 
-Log.debug(u.present_yourself)
+Log.debug(first_user.present_yourself)
 Log.debug('System clean. Going home')
+Log.debug("Wait Wait.. #{Random.choices(['not', 'going', 'yet'])}")
+Log.debug("Found data leak..")
 
-Log.debug("Wait Wait.. #{Random.choice(['bye', 'hello', 'hi'])}")
+
+madeleine = SnapshotMadeleine.new("data/madeleine") {
+    world
+}
+Log.debug("-= Data =-")
+Log.debug(madeleine)
 

@@ -17,7 +17,7 @@ module DataSource
     
         def generate_data
             seller = self
-            Log.debug("Fooding #{seller} as much hunger is present")
+            Log.debug("Fooding #{seller} as much hunger is felt")
             generate_accounts(seller)
             generate_items(seller)
             generate_translation_requests(seller)
