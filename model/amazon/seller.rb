@@ -11,7 +11,7 @@ module Model
         attr_reader :accounts
 
         def initialize
-            Log.debug('Seller.initialize..')
+            #Log.debug('Seller.initialize..')
             @accounts = []
             super()
         end

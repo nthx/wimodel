@@ -6,24 +6,22 @@ require "utils/logging"
 module DataSource
     module RandomSource
         SITES = ['fr', 'it', 'de']
+        MIN_ITEMS=30
+        MAX_ITEMS=50
+        ITEMS_WITH_REQUESTS=20
         
         def initialize()
-            Log.debug('DataSource.RandomSource.initialize..')
+            #Log.debug('DataSource.RandomSource.initialize..')
             super()
         end
     
-        #def RandomSource.included(mod)
-        #    Log.debug("#{self} included() in #{mod}")
-        #end
-
         def generate_data
             seller = self
-            Log.debug("generate_data. User found: #{seller}")
+            Log.debug("Fooding #{seller} as much hunger is present")
             generate_accounts(seller)
             generate_items(seller)
             generate_translation_requests(seller)
         end
-        
         
         def generate_accounts(seller)
             account_1 = seller.assign_account('US')
@@ -33,19 +31,15 @@ module DataSource
         
         def generate_items(seller)
             account = seller.main_account
-            how_many = 5 + rand(10)
+            how_many = MIN_ITEMS + rand(MAX_ITEMS)
             (1..how_many).each do |i|
-                seller.fetched_item(account, "12349900#{i}")
+                seller.fetched_item(account, random_item_id(i))
             end
         end
         
         def generate_translation_requests(seller)
             account = seller.main_account
-            how_many = 2 + rand(account.items.length - 2) #items length >=5..so 2 is safe
-            items_for_requesting = account.items.select do |item|
-                should_request = rand(3) >= 1
-                should_request
-            end
+            items_for_requesting = Random.choices(account.items, ITEMS_WITH_REQUESTS)
             
             Log.debug("Will request for #{items_for_requesting.length}/#{account.items.length} items")
             
