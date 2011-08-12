@@ -1,18 +1,18 @@
 module Model
-    module Amazon
+  module Amazon
 
-        class TranslationRequest
-            attr_accessor :site, :state
-            
-            def initialize(site)
-                @site = site
-            end
+    class TranslationRequest
+      attr_accessor :site, :state
 
-            
-            def to_s
-                "Request to #{@site.upcase}"
-            end
-        end
+      def initialize(site)
+        @site = site
+      end
 
+
+      def to_s
+        "Request to #{@site.upcase}"
+      end
     end
+
+  end
 end
