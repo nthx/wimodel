@@ -25,6 +25,9 @@ Log.debug("Found data leak..")
 madeleine = SnapshotMadeleine.new("data/madeleine") {
     world
 }
-Log.debug("-= Data =-")
+Log.debug("-= Living organisms =-")
 Log.debug(madeleine)
+
+Log.debug("They must go sleep and NOW")
+madeleine.take_snapshot
 
