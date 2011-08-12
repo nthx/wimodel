@@ -12,18 +12,13 @@ module Model
             end
             
             def find_account(item)
-                #puts "find_account.. #{item}"
-                for account in @seller.accounts
-                    if account.has_item(item)
-                        account
-                    end
+                @seller.accounts.detect do |account|
+                    account.has_item(item)
                 end
             end
             
-            
             def request_translation(item, site)
                 account = find_account(item)
-                #puts "Account found: #{account}"
                 if not account
                     raise 'Item not in an account'
                 end

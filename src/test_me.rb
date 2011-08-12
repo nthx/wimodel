@@ -27,7 +27,7 @@ Log.debug('Infection found..')
 
 Log.debug(first_user.present_yourself)
 Log.debug('System clean. Going home')
-Log.debug("Wait Wait.. #{Random.choices(['not', 'going', 'yet'])}")
+Log.debug("Wait Wait.. #{['not', 'going', 'yet'].sample}")
 
 
 Log.debug("They must go sleep and NOW")

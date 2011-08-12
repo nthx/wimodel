@@ -1,4 +1,5 @@
 require "utils/logging"
+require "set"
 
 class Random
     def self.choice(list)
@@ -9,19 +10,16 @@ class Random
         if list.length < minimum
             raise "list must have at least #{minimum} elem"
         end
-        list = Array.new(list)
-        chosen = []
+        set = Set.new
         how_many = rand(list.length)
         if how_many < minimum
             how_many = minimum
         end
         
         (1..how_many).each do |i|
-            elem = choice(list)
-            chosen << elem
-            list.delete(elem)
+            set.add(list.sample)
         end
-        chosen
+        set
     end
 end
 

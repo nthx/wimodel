@@ -1,14 +1,16 @@
 require "model/amazon/seller"
 require "utils/random"
 require "utils/logging"
+require "benchmark"
 
 
 module DataSource
     module RandomSource
         SITES = ['fr', 'it', 'de']
-        BILION=1000
-        MIN_ITEMS=30*BILION
-        MAX_ITEMS=50*BILION
+        #MIN_ITEMS=6151461
+        #MAX_ITEMS=6222000
+        MIN_ITEMS=55000
+        MAX_ITEMS=60000
         ITEMS_WITH_REQUESTS=MIN_ITEMS - 5
         
         def initialize()
@@ -34,7 +36,7 @@ module DataSource
         def generate_items(seller)
             Log.debug("generate_items")
             account = seller.main_account
-            how_many = MIN_ITEMS + rand(MAX_ITEMS)
+            how_many = MIN_ITEMS + rand(MAX_ITEMS-MIN_ITEMS)
             (1..how_many).each do |i|
                 seller.fetched_item(account, random_item_id(i))
             end
@@ -43,17 +45,20 @@ module DataSource
         def generate_translation_requests(seller)
             Log.debug("generate_translation_requests")
             account = seller.main_account
-            #items_for_requesting = Random.choices(account.items, ITEMS_WITH_REQUESTS)
             items_for_requesting = account.items
             
             Log.debug("Will request for #{items_for_requesting.length}/#{account.items.length} items")
             
+            benchmark = []
             items_for_requesting.each do |item|
                 random_sites = Random.choices(SITES)
-                random_sites.each do |random_site|
-                    seller.request_translation(item, random_site)
-                end
+                benchmark << Benchmark.measure(label="loop"){
+                    random_sites.each do |random_site|
+                        seller.request_translation(item, random_site)
+                    end
+                }
             end
+            #Log.debug("\n#{benchmark}")
             Log.debug("Requested")
         end
     end
