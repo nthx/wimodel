@@ -35,9 +35,9 @@ module Model
                     requests_len += item.length_of_requests
                 end
                 str << "Account: #{@username} (#{@site}): items: #{items_len} requests: #{requests_len}"
-                @items.each do |item|
-                    str << item.to_s
-                end
+                #@items.each do |item|
+                #    str << item.to_s
+                #end
                 str.join("\n")
             end
         end

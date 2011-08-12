@@ -9,7 +9,7 @@ class MyLog
         @log = Logger.new("my_formatlog")
         pf = PatternFormatter.new(:pattern => "%d %l: %m")
         fo = FileOutputter.new("f2", :filename => "./logs/wimodel.log", :formatter => pf)
-        sp = StdoutOutputter.new 'console'
+        sp = StdoutOutputter.new('console', :formatter => pf)
  
         @log.outputters = [fo, sp]
         @log.level = DEBUG

@@ -6,9 +6,10 @@ require "utils/logging"
 module DataSource
     module RandomSource
         SITES = ['fr', 'it', 'de']
-        MIN_ITEMS=30
-        MAX_ITEMS=50
-        ITEMS_WITH_REQUESTS=20
+        BILION=1000
+        MIN_ITEMS=30*BILION
+        MAX_ITEMS=50*BILION
+        ITEMS_WITH_REQUESTS=MIN_ITEMS - 5
         
         def initialize()
             #Log.debug('DataSource.RandomSource.initialize..')
@@ -24,12 +25,14 @@ module DataSource
         end
         
         def generate_accounts(seller)
+            Log.debug("generate_accounts")
             account_1 = seller.assign_account('US')
             random_site = Random.choice(SITES)
             account_2 = seller.assign_account(random_site)
         end
         
         def generate_items(seller)
+            Log.debug("generate_items")
             account = seller.main_account
             how_many = MIN_ITEMS + rand(MAX_ITEMS)
             (1..how_many).each do |i|
@@ -38,8 +41,10 @@ module DataSource
         end
         
         def generate_translation_requests(seller)
+            Log.debug("generate_translation_requests")
             account = seller.main_account
-            items_for_requesting = Random.choices(account.items, ITEMS_WITH_REQUESTS)
+            #items_for_requesting = Random.choices(account.items, ITEMS_WITH_REQUESTS)
+            items_for_requesting = account.items
             
             Log.debug("Will request for #{items_for_requesting.length}/#{account.items.length} items")
             
@@ -49,6 +54,7 @@ module DataSource
                     seller.request_translation(item, random_site)
                 end
             end
+            Log.debug("Requested")
         end
     end
 end
