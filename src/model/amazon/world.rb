@@ -1,7 +1,5 @@
 require "model/user"
 require "utils/logging"
-require "lib/andrzejkrzywda-madeleine-cbb4c47/lib/madeleine"
-require "lib/andrzejkrzywda-madeleine-cbb4c47/lib/madeleine/automatic"
 
 
 module Model
