@@ -5,7 +5,8 @@ require "benchmark"
 
 
 module DataSource
-  module RandomSource
+
+  class RandomSource
     SITES = ['fr', 'it', 'de']
     #MIN_ITEMS=6151461
     #MAX_ITEMS=6222000
@@ -18,8 +19,7 @@ module DataSource
       super()
     end
 
-    def generate_data
-      seller = self
+    def generate_data(seller)
       Log.debug("Fooding #{seller} as much hunger is felt")
       generate_accounts(seller)
       generate_items(seller)

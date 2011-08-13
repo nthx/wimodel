@@ -11,18 +11,21 @@ require "lib/andrzejkrzywda-madeleine-cbb4c47/lib/madeleine/automatic"
 
 
 Log.debug('Running diagnosis..')
-#world = Model::World.new
-Log.debug("Found data leak..")
+random_source = DataSource::RandomSource.new()
+
+Log.debug("Found data leak..repairing..")
 madeleine = AutomaticSnapshotMadeleine.new("data/madeleine") do
     Model::World.new
 end
 
 world = madeleine.system
-Log.debug("-= Living organisms exist here =-")
+Log.debug("Living organisms exist here.. exterminate")
 Log.debug(world)
 
 first_user = world.give_birth_to_amazon_seller('tomcio')
-first_user.generate_data
+
+
+random_source.generate_data(first_user)
 
 Log.debug('Infection found..')
 

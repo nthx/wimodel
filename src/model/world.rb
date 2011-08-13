@@ -1,4 +1,5 @@
 require "model/amazon/world"
+require "data_source/random_source"
 require "utils/logging"
 require "lib/andrzejkrzywda-madeleine-cbb4c47/lib/madeleine"
 require "lib/andrzejkrzywda-madeleine-cbb4c47/lib/madeleine/automatic"
@@ -8,6 +9,10 @@ module Model
 
   class World
     include Madeleine::Automatic::Interceptor
+    
+    #I will ignore this method, so that Mad intercepts other finer grained methods on Seller*
+    automatic_read_only :generate_data
+
     include Model::Amazon::World
 
     def initialize()

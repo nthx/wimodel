@@ -1,5 +1,4 @@
 require "model/amazon/seller"
-require "data_source/random_source"
 require "utils/logging"
 require "lib/andrzejkrzywda-madeleine-cbb4c47/lib/madeleine"
 require "lib/andrzejkrzywda-madeleine-cbb4c47/lib/madeleine/automatic"
@@ -11,7 +10,6 @@ module Model
     include Madeleine::Automatic::Interceptor
 
     include Model::Amazon::Seller
-    include DataSource::RandomSource
 
     def initialize(last_name, first_name=nil)
       Log.debug('Species growing..')

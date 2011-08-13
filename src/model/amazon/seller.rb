@@ -33,14 +33,13 @@ module Model
       end
 
       def main_account
-        @accounts.each do |account|
-          if account.uk_or_us?
-            account
-          end
-        end
-        if @accounts
-          @accounts[0]
-        end
+        account = @accounts.detect do |account|
+          account.uk_or_us?
+        end || any_account
+      end
+      
+      def any_account
+          @accounts.any? ? @accounts[0] : nil
       end
 
       def fetched_item(account, item_id)
