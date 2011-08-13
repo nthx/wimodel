@@ -1,9 +1,13 @@
-require "utils/logging"
 require "model/amazon/world"
+require "utils/logging"
+require "lib/andrzejkrzywda-madeleine-cbb4c47/lib/madeleine"
+require "lib/andrzejkrzywda-madeleine-cbb4c47/lib/madeleine/automatic"
 
 
 module Model
+
   class World
+    include Madeleine::Automatic::Interceptor
     include Model::Amazon::World
 
     def initialize()

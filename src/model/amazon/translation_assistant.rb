@@ -7,7 +7,6 @@ module Model
     class TranslationAssistant
 
       def initialize(seller)
-        #puts "#{self.class}.initialize for #{seller}"
         @seller = seller
       end
 
@@ -25,5 +24,6 @@ module Model
         item.new_request(site)
       end
     end
+
   end
 end

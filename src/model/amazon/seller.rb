@@ -9,6 +9,7 @@ module Model
 
     module Seller
       include Model::Amazon::SellerPresenter
+
       attr_reader :accounts
 
       def initialize
@@ -23,7 +24,11 @@ module Model
 
       def assign_account(site)
         account = Model::Amazon::Account.new(site)
-        @accounts.push account
+        add_account(account)
+      end
+      
+      def add_account(account)
+        @accounts << account
         account
       end
 

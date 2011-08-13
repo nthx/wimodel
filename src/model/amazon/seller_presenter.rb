@@ -5,8 +5,8 @@ module Model
   module Amazon
 
     module SellerPresenter
+
       def initialize
-        #puts "#{self.class} initialize: #{name}"
       end
 
       def present_yourself

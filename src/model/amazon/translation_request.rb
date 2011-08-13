@@ -1,3 +1,5 @@
+
+
 module Model
   module Amazon
 
@@ -7,7 +9,6 @@ module Model
       def initialize(site)
         @site = site
       end
-
 
       def to_s
         "Request to #{@site.upcase}"

@@ -1,10 +1,15 @@
 require "model/amazon/seller"
-require "data_source/random"
+require "data_source/random_source"
 require "utils/logging"
+require "lib/andrzejkrzywda-madeleine-cbb4c47/lib/madeleine"
+require "lib/andrzejkrzywda-madeleine-cbb4c47/lib/madeleine/automatic"
 
 
 module Model
+
   class User
+    include Madeleine::Automatic::Interceptor
+
     include Model::Amazon::Seller
     include DataSource::RandomSource
 
@@ -14,11 +19,9 @@ module Model
       super()
     end
 
-
     def name
       "#{@last_name} #{@first_name}"
     end
-
 
     def to_s
       "a #{name}"
