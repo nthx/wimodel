@@ -8,6 +8,7 @@ module Model
 
   class User
     include Madeleine::Automatic::Interceptor
+    automatic_read_only :to_s, :present_yourself
 
     include Model::Amazon::Seller
 

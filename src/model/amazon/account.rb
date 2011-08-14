@@ -8,7 +8,7 @@ module Model
     class Account
       attr_accessor :site, :username, :items
 
-      def initialize(site, username=nil)
+      def initialize(site, username)
         @site, @username = site, username
         @items = []
         @items_by_item_id = {}

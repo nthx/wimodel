@@ -21,6 +21,14 @@ class Random
     end
     set
   end
+  
+  def self.random_text
+    s = []
+    10.times do |i|
+      s << rand(10)
+    end
+    return s.join('')
+  end
 end
 
 def random_item_id(i)

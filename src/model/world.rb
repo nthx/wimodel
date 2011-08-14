@@ -11,7 +11,7 @@ module Model
     include Madeleine::Automatic::Interceptor
     
     #I will ignore this method, so that Mad intercepts other finer grained methods on Seller*
-    automatic_read_only :generate_data
+    automatic_read_only :to_s
 
     include Model::Amazon::World
 

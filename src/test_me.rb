@@ -8,13 +8,11 @@ require "lib/andrzejkrzywda-madeleine-cbb4c47/lib/madeleine"
 require "lib/andrzejkrzywda-madeleine-cbb4c47/lib/madeleine/automatic"
 
 
-
-
 Log.debug('Running diagnosis..')
 random_source = DataSource::RandomSource.new()
 
 Log.debug("Found data leak..repairing..")
-madeleine = AutomaticSnapshotMadeleine.new("data/madeleine") do
+madeleine = AutomaticSnapshotMadeleine.new("data/madeleine", Madeleine::ZMarshal.new(YAML)) do
     Model::World.new
 end
 
@@ -35,7 +33,7 @@ Log.debug("Wait Wait.. #{['not', 'going', 'yet'].sample}")
 
 
 Log.debug("They must go sleep and NOW")
-#madeleine.take_snapshot
+madeleine.take_snapshot
 
 Log.debug("We destroyed this world and learnt on this mistake")
 Log.debug(world)

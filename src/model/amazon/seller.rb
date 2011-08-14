@@ -22,8 +22,8 @@ module Model
       #    Log.debug("#{self} included() in #{mod}")
       #end
 
-      def assign_account(site)
-        account = Model::Amazon::Account.new(site)
+      def assign_account(site, username)
+        account = Model::Amazon::Account.new(site, username)
         add_account(account)
       end
       
@@ -41,8 +41,15 @@ module Model
       def any_account
           @accounts.any? ? @accounts[0] : nil
       end
+      
+      def find_account_by_username(username)
+        return @accounts.detect do |account|
+          account.username == username
+        end
+      end
 
-      def fetched_item(account, item_id)
+      def fetched_item(account_username, item_id)
+        account = find_account_by_username(account_username)
         if not @accounts.member?(account)
           raise 'Account not yours to fetch'
         end

@@ -16,9 +16,6 @@ module Model
         add_user(seller)
       end
 
-      def to_s
-        "User: #{name}"
-      end
     end
 
   end
