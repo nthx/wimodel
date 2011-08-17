@@ -13,7 +13,7 @@ random_source = DataSource::RandomSource.new()
 
 Log.debug("Found data leak..repairing..")
 madeleine = AutomaticSnapshotMadeleine.new("data/madeleine", Madeleine::ZMarshal.new(YAML)) do
-    Model::World.new
+  Model::World.new
 end
 
 world = madeleine.system
@@ -22,6 +22,9 @@ Log.debug(world)
 
 first_user = world.give_birth_to_amazon_seller('tomcio')
 
+#account = first_user.assign_account('US', Random.random_text())
+#first_user.fetched_item(account.username, random_item_id(idx))
+#first_user.request_translation(item, random_site)
 
 random_source.generate_data(first_user)
 

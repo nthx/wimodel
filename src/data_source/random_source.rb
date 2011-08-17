@@ -10,7 +10,8 @@ module DataSource
     SITES = ['fr', 'it', 'de']
     #ITEMS_NO=6151461
     
-    ITEMS_NO=600_000
+    ITEMS_NO=1_000_000
+    #ITEMS_NO=600_000
 
     def initialize()
       #Log.debug('DataSource.RandomSource.initialize..')
@@ -34,8 +35,8 @@ module DataSource
       Log.debug(benchmark)
 
       Log.debug("Data added: Items: #{ITEMS_NO}, Requests: #{requests_no}")
-      Log.debug("Commands/s (new item): #{1/(benchmark[1].real/ITEMS_NO)}")
-      Log.debug("Commands/s (request translation): #{1/(benchmark[2].real/requests_no)}")
+      Log.debug("Commands/s (item): #{ITEMS_NO / benchmark[1].real}")
+      Log.debug("Commands/s (request translation): #{requests_no / benchmark[2].real}")
     end
 
     def generate_accounts(seller)
