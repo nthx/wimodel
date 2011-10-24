@@ -1,0 +1,14 @@
+GIT
+  remote: git://github.com/andrzejkrzywda/madeleine.git
+  revision: cbb4c47064cdfc4159d53dc21d09b27c7edcd1d6
+  specs:
+    madeleine (0.0.0)
+
+GEM
+  specs:
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  madeleine (= 0.0.0)!

@@ -200,7 +200,11 @@ p restored_obj if restored_obj.class != Prox
           result
         end
       end
-#
+      
+      def to_s
+        @thing.to_s
+      end
+
 # Custom marshalling - this adds the internal id (myid) and the system id to a marshal
 # of the object we are the proxy for.
 # We take care to not marshal the same object twice, so circular references will work.
